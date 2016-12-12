@@ -29,6 +29,9 @@ class BillMigration extends Migration
             $table->decimal('taxes', 6, 2);
             $table->decimal('total', 6, 2);
 
+            $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies');
+
             $table->timestamps();
         });
     }

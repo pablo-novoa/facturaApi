@@ -23,7 +23,7 @@ class Bill extends Model
         'currency',
         'sub_total',
         'taxes',
-        'total',
+        'total'
     ];
 
     protected $hidden = ['id', 'created_at', 'updated_at'];

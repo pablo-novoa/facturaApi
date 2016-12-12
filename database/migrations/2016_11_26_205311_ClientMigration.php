@@ -20,6 +20,10 @@ class ClientMigration extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('locality');
+
+            $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies');
+
             
             $table->timestamps();
         });

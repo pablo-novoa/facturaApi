@@ -17,7 +17,7 @@ class Client extends Model
         'address', 
         'locality'
     ];
-    protected $hidden = ['id', 'created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function company(){
         return $this->belongsTo('App\Company');

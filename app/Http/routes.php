@@ -14,3 +14,6 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+$app->get('/clientes', 'ClientCtrl@index');
+$app->get('/clientes/{id}', 'ClientCtrl@single');
