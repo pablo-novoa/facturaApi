@@ -60,7 +60,7 @@ $app->singleton(
 */
 
 $app->middleware([
-   App\Http\Middleware\oAuth0::class
+   App\Http\Middleware\oAuth0::class,
 ]);
 
 // $app->routeMiddleware([

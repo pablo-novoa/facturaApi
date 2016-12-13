@@ -18,7 +18,11 @@ class oAuth0
         $authorizationHeader = $request->header('Authorization');
 
         if ($authorizationHeader == null) {
-          return response()->json(['error' => "No authorization header sent"], 418);
+          return response()->json(['error' => "No authorization header sent"], 418)
+                  ->header('Access-Control-Allow-Origin', '*')
+                  ->header('Access-Control-Allow-Methods', 'PUT, POST, DELETE')
+                  ->header('Access-Control-Allow-Headers', 'Accept, Content-Type,X-CSRF-TOKEN,Authorization')
+                  ->header('Access-Control-Allow-Credentials', 'true');
         }
 
 
@@ -34,7 +38,12 @@ class oAuth0
        try {
         
           $decoded_token = $verifier->verifyAndDecode($jwt);
-          return $next($request);
+
+          return $next($request)
+                  ->header('Access-Control-Allow-Origin', '*')
+                  ->header('Access-Control-Allow-Methods', 'PUT, POST, DELETE')
+                  ->header('Access-Control-Allow-Headers', 'Accept, Content-Type,X-CSRF-TOKEN,Authorization')
+                  ->header('Access-Control-Allow-Credentials', 'true');
 
         } catch(Exception\CoreException $e) {
            return response()->json(['error' => "Invalid token"], 401);
