@@ -14,10 +14,24 @@ class oAuth0
     {
 
      /* CORS stuff
-        header('Access-Control-Allow-Origin: http://localhost:9000');
+      */
+       /* header('Access-Control-Allow-Origin: http://localhost:9000');
         header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization");
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-      */
+        header("Access-Control-Allow-Credentials: true");*/
+
+        header('Access-Control-Allow-Origin: http://localhost:9000');
+        header('Access-Control-Allow-Credentials: true');
+        
+        if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+          // return only the headers and not the content
+          // only allow CORS if we're doing a GET - i.e. no saving for now.
+          if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']) && $_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'] == 'GET') {
+            header('Access-Control-Allow-Headers: X-Requested-With, Authorization, Content-Type, Accept');
+          }
+          exit;
+        }
+
 
         $client_id = 'hb048Whxrcdt0aoSYTeuElCU0p2voyQ0';
         $client_secret =  base64_encode('SGOKHTo5cbE8HYxVGoY9r_wHFZslNhE97hHTW32Mk0UBR0h57TjKlwSyyZSp3jQG');
