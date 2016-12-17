@@ -54,9 +54,16 @@ $factory->define(App\Bill::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Client::class, function (Faker\Generator $faker) {
     return [
-        'rut' 		=> $faker->ean8,
-        'name'		=> $faker->company,
-        'address' 	=> $faker->address, 
-        'locality' 	=> $faker->randomElement( $array = array('Montevideo', 'Maldonado', 'Canelones') )
+        'type'            => $faker->randomElement( $array = array('person', 'business') ),
+        'rut_CI'          => $faker->ean8,
+        'nombre'          => $faker->company,
+        'nombre_fantasia' => $faker->catchPhrase,
+        'nombre_contacto' => $faker->lastName,
+        'departamento'    => $faker->state,
+        'ciudad'          => $faker->city,
+        'direccion'       => $faker->address,
+        'tel'             => $faker->e164PhoneNumber,
+        'cel'             => $faker->e164PhoneNumber,
+        'email'           => $faker->email
     ];
 });

@@ -12,10 +12,18 @@ class Client extends Model
 {
     
     protected $fillable = [
-        'rut',
-        'name',
-        'address', 
-        'locality'
+        "id",
+        "type",
+        "rut_CI",
+        "nombre",
+        "nombre_fantasia",
+        "nombre_contacto",
+        "departamento",
+        "ciudad",
+        "direccion",
+        "tel",
+        "cel",
+        "email"
     ];
     protected $hidden = ['created_at', 'updated_at'];
 

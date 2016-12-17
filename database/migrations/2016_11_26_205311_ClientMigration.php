@@ -16,16 +16,26 @@ class ClientMigration extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('rut');
-            $table->string('name');
-            $table->string('address');
-            $table->string('locality');
+            $table->string('type');
+            $table->integer('rut_CI');
+            $table->string('nombre');
+            $table->string('nombre_fantasia');
+            $table->string('departamento');
+            $table->string('ciudad');
+            $table->string('direccion');
+            $table->string('tel');
+            $table->string('cel');
+            $table->string('email');
+            $table->string('nombre_contacto');
+            $table->string('tel_contacto');
+            $table->string('email_contacto');
 
             $table->integer('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('companies');
 
             
             $table->timestamps();
+
         });
     }
 
