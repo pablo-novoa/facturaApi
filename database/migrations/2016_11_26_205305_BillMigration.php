@@ -23,7 +23,7 @@ class BillMigration extends Migration
             $table->string('buyer_address');
             $table->string('buyer_locality');
             $table->boolean('final_consumer');
-            $table->json('bill_items');
+            $table->text('bill_items');
             $table->string('currency');
             $table->decimal('sub_total', 6, 2);
             $table->decimal('taxes', 6, 2);
