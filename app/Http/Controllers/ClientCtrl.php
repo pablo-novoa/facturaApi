@@ -17,4 +17,17 @@ class ClientCtrl extends Controller
 		return response()->json($client, 200);
 	} 
 
+	public function destroy($id) {
+
+		$getClient = Client::find($id);
+
+		if($getClient){
+
+			$getClient->delete();
+			return response()->json(['ok' => "Cliente Borrado"], 201);
+		}
+		
+		return response()->json(['error' => "el cliente no existe"], 401);	
+	} 
+
 }

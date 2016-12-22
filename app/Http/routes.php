@@ -17,3 +17,4 @@ $app->get('/', function () use ($app) {
 
 $app->get('/clientes', 'ClientCtrl@index');
 $app->get('/clientes/{id}', 'ClientCtrl@single');
+$app->post('/clientes/{id}', 'ClientCtrl@destroy');
