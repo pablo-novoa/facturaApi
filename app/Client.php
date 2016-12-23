@@ -23,8 +23,10 @@ class Client extends Model
         "direccion",
         "tel",
         "cel",
-        "email"
+        "email",
+        "company_id"
     ];
+    
     protected $hidden = ['created_at', 'updated_at'];
 
     public function company(){

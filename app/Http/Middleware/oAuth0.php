@@ -22,19 +22,15 @@ class oAuth0
 
         header('Access-Control-Allow-Origin: http://localhost:9000');
         header('Access-Control-Allow-Credentials: true');
-            header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
         
         if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-          // return only the headers and not the content
-          // only allow CORS if we're doing a GET - i.e. no saving for now.
-          if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']) && $_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'] == 'GET') {
-          }
-            header('Access-Control-Allow-Headers: X-Requested-With, Authorization, Content-Type, Accept');
+          header('Access-Control-Allow-Headers: X-Requested-With, Authorization, Content-Type, Accept');
           exit;
         }
 
-            header('Access-Control-Allow-Headers: X-Requested-With, Authorization, Content-Type, Accept');
+            //header('Access-Control-Allow-Headers: X-Requested-With, Authorization, Content-Type, Accept');
 
 
         $client_id = 'hb048Whxrcdt0aoSYTeuElCU0p2voyQ0';

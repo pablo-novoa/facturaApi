@@ -30,8 +30,8 @@ class ClientMigration extends Migration
             $table->string('tel_contacto');
             $table->string('email_contacto');
 
-            $table->integer('company_id')->unsigned();
-            $table->foreign('company_id')->references('id')->on('companies');
+            $table->integer('company_id');
+            //$table->foreign('company_id')->references('id')->on('companies');
 
             
             $table->timestamps();
