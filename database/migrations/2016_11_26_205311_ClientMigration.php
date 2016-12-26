@@ -17,7 +17,7 @@ class ClientMigration extends Migration
             $table->increments('id');
 
             $table->string('type');
-            $table->integer('rut_CI');
+            $table->string('rut_CI');
             $table->string('nombre');
             $table->string('nombre_fantasia');
             $table->string('departamento');

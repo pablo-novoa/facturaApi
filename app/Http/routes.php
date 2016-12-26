@@ -15,8 +15,10 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('/clientes', 'ClientCtrl@index');
-$app->get('/clientes/{id}', 'ClientCtrl@single');
-$app->post('/clientes', 'ClientCtrl@create');
-$app->delete('/clientes/{id}', 'ClientCtrl@destroy');
+$app->get('/clientes/{company_id}', 'ClientCtrl@index');
+$app->post('/clientes/{company_id}', 'ClientCtrl@create');
+
+$app->get('/clientes/{company_id}/{id}', 'ClientCtrl@single');
+$app->post('/clientes/{company_id}/{id}', 'ClientCtrl@update');
+$app->delete('/clientes/{company_id}/{id}', 'ClientCtrl@destroy');
 
